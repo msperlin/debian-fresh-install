@@ -63,12 +63,13 @@ install_docker() {
     sudo ./scripts/install_config_docker.sh
 }
 
-install_extensions() {
+install_insync() {
+    sudo ./scripts/install-insync.sh
+}
+
+customize_desktop() {
     # Installs extension packages and enables them
-    sudo apt install -y $EXTENSION_PACKAGES
-    
-    # Note: GNOME often needs a session restart (Logout/Login) to see new system-wide extensions.
-    echo ">> Extension packages installed. You may need to logout/login to enable them via Extensions app."
+    sudo ./scripts/customize-desktop.sh
 }
 
 cleanup() {
@@ -80,18 +81,30 @@ cleanup() {
 echo "=== Debian GNOME Setup Script ==="
 
 ask_user "Update and Upgrade System?" update_system
+
 ask_user "Set non-free repositories?" set_non_free_repos
+
 ask_user "Install apt software in $apt_file?" install_apt_software
+
 ask_user "Install texlive-full?" install_texlive_full
+
 ask_user "Install R-related packages?" install_r
+
 ask_user "Install Python related packages?" install_python
+
 ask_user "Install zsh and oh-my-zsh?" install_zsh
+
 ask_user "Install Docker?" install_docker
 
 ask_user "Install Nvidia related drivers?" install_nvidia_drivers
 
 ask_user "Install GNOME Extensions (Dash to Dock, Tweaks, etc.)?" install_extensions
-ask_user "4. Run System Cleanup?" cleanup
+
+ask_user "Customize Gnome desktop?" customize_desktop
+
+ask_user "Install Insync (Google Drive client)?" install_insync
+
+ask_user "Run System Cleanup?" cleanup
 
 echo "=== Setup Complete! ==="
 echo "Please restart your session to apply GNOME changes."

@@ -14,3 +14,4 @@ python3-pip
 libharfbuzz-dev
 libfribidi-dev
 curl
+gnome-shell-extensions
