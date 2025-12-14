@@ -1,4 +1,5 @@
 #!/bin/bash
+debian_codename=$(lsb_release -cs)
 
 gpg --keyserver keyserver.ubuntu.com \
     --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
@@ -6,8 +7,9 @@ gpg --keyserver keyserver.ubuntu.com \
 gpg --armor --export '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' | \
     sudo tee /etc/apt/trusted.gpg.d/cran_debian_key.asc
 
+echo "deb http://cloud.r-project.org/bin/linux/debian ${debian_codename}-cran40/" | sudo tee -a /etc/apt/sources.list
+
 sudo apt update
-#sudo apt install r-base r-base-dev texlive-full
 sudo apt install r-base r-base-dev
 
 # install rstudio
