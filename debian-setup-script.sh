@@ -3,7 +3,6 @@
 # --- Configuration ---
 apt_file="apt-to-install.txt"
 
-
 # --- Functions ---
 ask_user() {
     # Usage: ask_user "Question?" "Command to run"
@@ -38,8 +37,14 @@ install_apt_software() {
     sudo apt install -y $APT_PACKAGES
 }
 
-install_texlive_full() {
-    sudo apt install -y texlive-full
+install_texlive() {
+    #sudo apt install -y texlive-full
+    sudo apt install -y \
+    texlive-latex-recommended texlive-latex-extra \
+    texlive-fonts-recommended texlive-science  \
+    texlive-pictures texlive-bibtex-extra \
+    texlive-lang-english texlive-luatex \
+    texlive-xetex texlive-lang-portuguese
 }
 
 install_r() {
@@ -48,7 +53,7 @@ install_r() {
 
 install_python(){
     ./scripts/install-python-related.sh
-    }
+}
 
 
 install_zsh(){
@@ -86,13 +91,13 @@ ask_user "Set non-free repositories?" set_non_free_repos
 
 ask_user "Install apt software in $apt_file?" install_apt_software
 
-ask_user "Install texlive-full?" install_texlive_full
+ask_user "Install texlive packages?" install_texlive
 
 ask_user "Install R-related packages?" install_r
 
 ask_user "Install Python related packages?" install_python
 
-ask_user "Install zsh and oh-my-zsh?" install_zsh
+#ask_user "Install zsh and oh-my-zsh?" install_zsh
 
 ask_user "Install Docker?" install_docker
 
