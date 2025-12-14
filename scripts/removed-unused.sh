@@ -1,1 +1,1 @@
-sudo apt purge thunderbird -y
+sudo apt purge thunderbird evolution -y
