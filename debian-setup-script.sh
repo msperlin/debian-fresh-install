@@ -98,8 +98,6 @@ ask_user "Install Docker?" install_docker
 
 ask_user "Install Nvidia related drivers?" install_nvidia_drivers
 
-ask_user "Install GNOME Extensions (Dash to Dock, Tweaks, etc.)?" install_extensions
-
 ask_user "Customize Gnome desktop?" customize_desktop
 
 ask_user "Install Insync (Google Drive client)?" install_insync
