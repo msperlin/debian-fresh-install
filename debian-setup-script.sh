@@ -55,6 +55,9 @@ install_python(){
     ./scripts/install-python-related.sh
 }
 
+install_vscode() {
+    sudo ./scripts/install-vscode.sh
+}
 
 install_zsh(){
     sudo ./scripts/install-zsh.sh
@@ -96,6 +99,8 @@ ask_user "Install texlive packages?" install_texlive
 ask_user "Install R-related packages?" install_r
 
 ask_user "Install Python related packages?" install_python
+
+ask_user "Install vscode?" install_vscode
 
 #ask_user "Install zsh and oh-my-zsh?" install_zsh
 

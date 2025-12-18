@@ -1,8 +1,7 @@
 #!/bin/bash
 
-echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+f_name="vscode_latest.deb"
+wget -O "$f_name" 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
 
-
-# Install VS Code
-sudo apt update
-sudo apt install -y code
+sudo dpkg -i "$f_name"
+rm "$f_name"
