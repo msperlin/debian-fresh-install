@@ -25,59 +25,12 @@ update_system() {
     sudo apt update && sudo apt upgrade -y
 }
 
-set_non_free_repos() {
-    sudo ./scripts/set-non-free-repositories.sh
-}
-
 install_apt_software() {
     for apt_software in $(cat "$apt_file")
     do
 	    sudo apt install "$apt_software" -y
     done
     sudo apt install -y $APT_PACKAGES
-}
-
-install_texlive() {
-    #sudo apt install -y texlive-full
-    sudo apt install -y \
-    texlive-latex-recommended texlive-latex-extra \
-    texlive-fonts-recommended texlive-science  \
-    texlive-pictures texlive-bibtex-extra \
-    texlive-lang-english texlive-luatex \
-    texlive-xetex texlive-lang-portuguese
-}
-
-install_r() {
-    ./scripts/install-R-related.sh
-}
-
-install_python(){
-    ./scripts/install-python-related.sh
-}
-
-install_vscode() {
-    sudo ./scripts/install-vscode.sh
-}
-
-install_zsh(){
-    sudo ./scripts/install-zsh.sh
-}
-
-install_nvidia_drivers() {
-    sudo ./scripts/install-nvidia-drivers.sh
-}
-
-install_docker() {
-    sudo ./scripts/install_config_docker.sh
-}
-
-install_insync() {
-    sudo ./scripts/install-insync.sh
-}
-
-customize_desktop() {
-    # Installs extension packages and enables them
-    sudo ./scripts/customize-desktop.sh
 }
 
 cleanup() {
@@ -90,27 +43,29 @@ echo "=== Debian GNOME Setup Script ==="
 
 ask_user "Update and Upgrade System?" update_system
 
-ask_user "Set non-free repositories?" set_non_free_repos
+ask_user "Set non-free repositories?" sudo ./scripts/set-non-free-repositories.sh
 
 ask_user "Install apt software in $apt_file?" install_apt_software
 
-ask_user "Install texlive packages?" install_texlive
+ask_user "Install texlive packages?" ./scripts/install-texlive.sh
 
-ask_user "Install R-related packages?" install_r
+ask_user "Install R-related packages?" ./scripts/install-R-related.sh
 
-ask_user "Install Python related packages?" install_python
+ask_user "Install Python related packages?"  ./scripts/install-python-related.sh
 
-ask_user "Install vscode?" install_vscode
+ask_user "Install vscode?" sudo ./scripts/install-vscode.sh
 
-#ask_user "Install zsh and oh-my-zsh?" install_zsh
+ask_user "Configure git username and email?" ./scripts/configure-git.sh
 
-ask_user "Install Docker?" install_docker
+ask_user "Install zsh and oh-my-zsh?"  sudo ./scripts/install-zsh.sh
 
-ask_user "Install Nvidia related drivers?" install_nvidia_drivers
+ask_user "Install Docker?" sudo ./scripts/install_config_docker.sh
 
-ask_user "Customize Gnome desktop?" customize_desktop
+ask_user "Install Nvidia related drivers?" sudo ./scripts/install-nvidia-drivers.sh
 
-ask_user "Install Insync (Google Drive client)?" install_insync
+ask_user "Customize Gnome desktop?"  sudo ./scripts/customize-desktop.sh
+
+ask_user "Install Insync (Google Drive client)?" sudo ./scripts/install-insync.sh
 
 ask_user "Run System Cleanup?" cleanup
 
