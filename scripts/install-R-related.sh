@@ -10,7 +10,7 @@ gpg --armor --export '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7' | \
 echo "deb http://cloud.r-project.org/bin/linux/debian ${debian_codename}-cran40/" | sudo tee -a /etc/apt/sources.list
 
 sudo apt update
-sudo apt install r-base r-base-dev
+sudo apt install r-base r-base-dev -y
 
 # install rstudio
 # 1. Install Dependencies
