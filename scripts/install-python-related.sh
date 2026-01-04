@@ -2,5 +2,5 @@
 
 curl -fsSL https://pyenv.run | bash
 
-eval "$(pyenv init -bash)"
-eval "$(pyenv virtualenv-init -bash)"
+echo 'eval "$(pyenv init -bash)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
