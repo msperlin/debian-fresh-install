@@ -1,6 +1,10 @@
 #!/bin/bash
-
 curl -fsSL https://pyenv.run | bash
 
-echo 'eval "$(pyenv init -bash)"' >> ~/.bashrc
+# set pyenv into bash shell
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+
+# set pyenv virtualenv autocomplete for bash
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
