@@ -58,10 +58,8 @@ CHOICES=$(whiptail --title "Debian GNOME Setup" --checklist \
 "PYTHON" "Install Python related packages" OFF \
 "VSCODE" "Install vscode" OFF \
 "GIT" "Configure git username and email" OFF \
-"ZSH" "Install zsh and oh-my-zsh" OFF \
 "DOCKER" "Install Docker" OFF \
 "NVIDIA" "Install Nvidia related drivers" OFF \
-"GNOME" "Customize Gnome desktop" OFF \
 "INSYNC" "Install Insync (Google Drive client)" OFF \
 "CLEANUP" "Run System Cleanup" OFF \
 3>&1 1>&2 2>&3)
@@ -77,10 +75,8 @@ if [ $? -eq 0 ]; then
             '"PYTHON"') ./scripts/install-python-related.sh ;;
             '"VSCODE"') sudo ./scripts/install-vscode.sh ;;
             '"GIT"') ./scripts/configure-git.sh ;;
-            '"ZSH"') sudo ./scripts/install-zsh.sh ;;
             '"DOCKER"') sudo ./scripts/install_config_docker.sh ;;
             '"NVIDIA"') sudo ./scripts/install-nvidia-drivers.sh ;;
-            '"GNOME"') sudo ./scripts/customize-desktop.sh ;;
             '"INSYNC"') sudo ./scripts/install-insync.sh ;;
             '"CLEANUP"') cleanup ;;
         esac
