@@ -75,7 +75,7 @@ if [ $? -eq 0 ]; then
             '"PYTHON"') ./scripts/install-python-related.sh ;;
             '"VSCODE"') sudo ./scripts/install-vscode.sh ;;
             '"GIT"') ./scripts/configure-git.sh ;;
-            '"DOCKER"') sudo ./scripts/install_config_docker.sh ;;
+            '"DOCKER"') sudo ./scripts/install-config-docker.sh ;;
             '"NVIDIA"') sudo ./scripts/install-nvidia-drivers.sh ;;
             '"INSYNC"') sudo ./scripts/install-insync.sh ;;
             '"CLEANUP"') cleanup ;;
