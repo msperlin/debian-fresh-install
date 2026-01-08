@@ -11,3 +11,4 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 # install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
