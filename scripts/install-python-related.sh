@@ -8,3 +8,6 @@ echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
 
 # set pyenv virtualenv autocomplete for bash
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+# install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
